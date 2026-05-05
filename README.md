@@ -1,2 +1,2 @@
 # A32Termux
-A repository to provide a home for anything done on a SamsungA32 with Termux
+A repository created to work on and store anything I do while using a Samsung A32 running Termux. 
