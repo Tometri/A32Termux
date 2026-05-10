@@ -1,0 +1,102 @@
+# ============================================================
+# STARSHIP CONFIG :: TERMUX / ANDROID
+# Departure Mono Nerd Font -- retro ASCII aesthetic
+# ============================================================
+
+add_newline = true
+command_timeout = 500
+
+format = """
+[+--\\[SYS\\]-](bold green)$username[@](bold white)$hostname[--\\[ENV\\]-](bold green)$python$nodejs$rust[--\\[CTX\\]-](bold green)$git_branch$git_status[-+](bold green)
+[|](bold green)$directory
+[+>](bold green) """
+
+# -- Identity --------------------------------------------------
+
+[username]
+style_user = "bold cyan"
+style_root = "bold red"
+format = "[$user]($style)"
+show_always = true
+
+[hostname]
+ssh_only = false
+style = "bold cyan"
+format = "[$hostname]($style)"
+trim_at = "."
+
+# -- Directory -------------------------------------------------
+
+[directory]
+style = "bold yellow"
+format = "[$path]($style)[$read_only]($read_only_style) "
+truncation_length = 3
+truncate_to_repo = true
+read_only = " [RO]"
+read_only_style = "bold red"
+
+# -- Git -------------------------------------------------------
+
+[git_branch]
+format = "[ $branch]($style)"
+style = "bold magenta"
+symbol = " "
+
+[git_status]
+format = '([$all_status$ahead_behind]($style))'
+style = "bold red"
+conflicted = "!CONFLICT "
+ahead = "+${count} "
+behind = "-${count} "
+diverged = "~${count} "
+untracked = "? "
+modified = "* "
+staged = " "
+deleted = "X "
+
+# -- Language Runtimes -----------------------------------------
+
+[python]
+format = "[ $version]($style) "
+style = "bold blue"
+symbol = " "
+
+[nodejs]
+format = "[ $version]($style) "
+style = "bold green"
+symbol = " "
+
+[rust]
+format = "[ $version]($style) "
+style = "bold red"
+symbol = " "
+
+# -- Prompt Character ------------------------------------------
+
+[character]
+success_symbol = "[>](bold green)"
+error_symbol = "[!](bold red)"
+vimcmd_symbol = "[<](bold yellow)"
+
+# -- Command Duration ------------------------------------------
+
+[cmd_duration]
+min_time = 2_000
+format = "[ $duration](bold yellow) "
+
+# -- Disable noisy modules ------------------------------------
+
+[package]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[terraform]
+disabled = true
